@@ -3,29 +3,32 @@ package main
 import "fmt"
 
 func main() { 
-	age := 25
-	name := "summer"
+	// 数组：长度固定，类型固定
+  //  var ages [3]int = [3]int{18,20,22}
+	var ages = [3]int{18,20,22}
 
-	// Print
-	fmt.Print("hello, ")
-	fmt.Print("world! \n")
-	fmt.Print("Hi! \n")
-  
-	// Println
-	fmt.Println("你好！")
-	fmt.Println("我是Summer.")
-	fmt.Println("我的名字叫",name, ",今年",age,"周岁。")
+	names := [4]string{"summer","lucy","henry","lily"}
+	names[1] = "John"
 
-	// Printf : 格式化输出函数
-   fmt.Printf("我的名字叫%v,今年%v周岁。\n", name, age)
-   fmt.Printf("我的名字叫%q,今年%q周岁。\n", name, age)
-   fmt.Printf("age变量的类型为%T \n",age)
-	 fmt.Printf("你的得分为%0.1f! \n",95.56)
+	fmt.Println(ages, len(ages))
+	fmt.Println(names, len(names))
 
-	 //Sprintf: 格式化并返回一个字符串（不带输出）
-	var str =  fmt.Sprintf("我的名字叫%v,今年%v周岁。\n", name, age)
-	fmt.Print(str)
+	// 切片:动态数组
+	var scores = []int{80,85,90,100}
+	 scores[2] = 95
+	scores = append(scores,98)
 
-	// 格式化符号：https://pkg.go.dev/fmt@go1.17.1
+	fmt.Println(scores, len(scores))
+
+	// 范围截取 - 包含起始下标,不包含终止下标
+	rangeOne := names[1:3]
+	rangeTwo := scores[2:]
+	rangeThree := names[:3]
+
+	fmt.Println(rangeOne,rangeTwo,rangeThree)
+
+	rangeOne = append(rangeOne,"Tom")
+	fmt.Println(rangeOne)
+
 
 }
