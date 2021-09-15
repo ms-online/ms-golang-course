@@ -1,40 +1,44 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
+
+
+func sayGreeting(n string) {
+	fmt.Printf("早上好，%v! \n", n)
+}
+
+func sayBye(n string) {
+	fmt.Printf("再见，%v \n", n)
+}
+
+func cycleNames(n []string, f func(string)){
+	for _, v := range n {
+		f(v)
+	}
+}
+
+func circleArea(r float64) float64 {
+	return	math.Pi * r * r
+}
+
 
 func main() { 
-	// age := 55
- // 布尔值
-	// fmt.Println( age < 40)
-	// fmt.Println( age <= 40)
-	// fmt.Println( age > 40)
-	// fmt.Println( age >= 40)
-	// fmt.Println( age == 35)
-	// fmt.Println( age != 35)
+	// len() append()
 
+	sayGreeting("summer")
+	sayBye("lucy")
+	sayBye("tom")
 
-	// 条件语句
-	// if age < 40{
-	// 	fmt.Println("年龄在40周岁以下")
-	// } else if age < 50 {
-	// 	fmt.Println("年龄在50周岁以下")
-	// } else {
-	// 	fmt.Println("年龄在55周岁及其以上")
-	// }
-	
- 	names := []string{"summer","lucy","henry","tom","lily"}
+	cycleNames([]string{"summer","lucy","henry"}, sayGreeting)
+	cycleNames([]string{"summer","lucy","henry"}, sayBye)
 
-	 for index, value := range names {
-    if index == 1 {
-			fmt.Println("当前下标为：", index)
-			continue
-		}
+	 a1 := circleArea(10)
+	 a2 := circleArea(15.5)
 
-		if index > 2 {
-			fmt.Println("下标值满足大于2的条件，此时索引为：", index)
-			break
-		}
-
-		 fmt.Printf("下标 %v 的值为 %v \n", index, value)
-	 }
+	 fmt.Println(a1, a2)
+	 fmt.Printf("a1的面积为：%0.3f, a2的面积为：%0.3f", a1,a2)
 }
+
