@@ -1,43 +1,33 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-	// "strings"
-)
+import "fmt"
 
 func main() { 
-	// 标准库链接：https://pkg.go.dev/std
-	// greeting := "Hello world My name is Summer"
+	// x := 0
+	// for x < 5 {
+	// 	fmt.Println("x的值为：", x)
+	// 	x++
+	// }
+
+	// for i :=0; i < 5; i++ {
+	// 	fmt.Println("i的值为：", i)
+	// }
+
+	names := []string{"summer","lucy","henry","tom"}
+
+	// for i := 0; i < len(names); i++ {
+	// 	fmt.Println(names[i])
+	// }
   
-	// strings 包
-	// fmt.Println(strings.Contains(greeting, "world"))
-	// fmt.Println(strings.ReplaceAll(greeting,"Hello","Hi"))
-	// fmt.Println(strings.ToUpper(greeting))
-	// fmt.Println(strings.Index(greeting, "o"))
-	// fmt.Println(strings.Split(greeting, " "))
+	// for index, value := range names {
+	// 	fmt.Printf("下标 %v 对应的值为 %v \n", index, value)
+	// }
 
-	 // 原始变量不会被改变
-	//  fmt.Println("原始变量不会改变：",greeting)
-
-
- // sort 包
-   ages := []int{38,26,15,9,49,60,78,90}
-
-	 sort.Ints(ages)
-	 fmt.Println(ages)
-
-	 indexOne := sort.SearchInts(ages, 15)
-	 indexTwo := sort.SearchInts(ages, 50)
-	 fmt.Println(indexOne)
-	 fmt.Println(indexTwo)
-
-
-	 names := []string{"summer","lucy","henry","lily","tom"}
-
-	 sort.Strings(names)
-	 fmt.Println(names)
-
-	 fmt.Println(sort.SearchStrings(names, "henry"))
+		for _, value := range names {
+				fmt.Printf("遍历的值为 %v \n", value)
+				value = "新名称"
+			}
+  // 不改变原始值
+		fmt.Println(names)
 
 }
