@@ -1,35 +1,21 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
-func getFirstWords(n string) (string, string) {
-    s := strings.ToUpper(n)
-		names := strings.Split(s," ")
+// 局部变量：在函数体内声明的变量称之为局部变量，它们的作用域只在函数体内，参数和返回值变量也是局部变量。
+// 全局变量：在函数体外声明的变量称之为全局变量，全局变量可以在整个包甚至外部包（被导出后）使用。
+// 局部变量：形式参数也作为局部变量来使用。
 
-		var firstWords []string
-		for _, v := range names {
-			firstWords = append(firstWords, v[:1])
-		}
 
-		if len(firstWords) > 1 {
-			return firstWords[0], firstWords[1]
-		}
-
-		return firstWords[0], "_"
-
-}
-
+var score = 100
 func main() { 
- fn1, sn1 :=	getFirstWords("summer peng")
- fmt.Println(fn1,sn1)
 
- fn2, sn2 :=	getFirstWords("lucy deng")
- fmt.Println(fn2,sn2)
+ 	
+	sayHello("summer")
+	showScore()
 
- fn3, sn3 :=	getFirstWords("henry")
- fmt.Println(fn3,sn3)
+	for _, v := range points {
+		fmt.Println(v)
+	}
 }
 
