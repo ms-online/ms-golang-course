@@ -1,34 +1,43 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	// "strings"
+)
 
 func main() { 
-	// 数组：长度固定，类型固定
-  //  var ages [3]int = [3]int{18,20,22}
-	var ages = [3]int{18,20,22}
+	// 标准库链接：https://pkg.go.dev/std
+	// greeting := "Hello world My name is Summer"
+  
+	// strings 包
+	// fmt.Println(strings.Contains(greeting, "world"))
+	// fmt.Println(strings.ReplaceAll(greeting,"Hello","Hi"))
+	// fmt.Println(strings.ToUpper(greeting))
+	// fmt.Println(strings.Index(greeting, "o"))
+	// fmt.Println(strings.Split(greeting, " "))
 
-	names := [4]string{"summer","lucy","henry","lily"}
-	names[1] = "John"
+	 // 原始变量不会被改变
+	//  fmt.Println("原始变量不会改变：",greeting)
 
-	fmt.Println(ages, len(ages))
-	fmt.Println(names, len(names))
 
-	// 切片:动态数组
-	var scores = []int{80,85,90,100}
-	 scores[2] = 95
-	scores = append(scores,98)
+ // sort 包
+   ages := []int{38,26,15,9,49,60,78,90}
 
-	fmt.Println(scores, len(scores))
+	 sort.Ints(ages)
+	 fmt.Println(ages)
 
-	// 范围截取 - 包含起始下标,不包含终止下标
-	rangeOne := names[1:3]
-	rangeTwo := scores[2:]
-	rangeThree := names[:3]
+	 indexOne := sort.SearchInts(ages, 15)
+	 indexTwo := sort.SearchInts(ages, 50)
+	 fmt.Println(indexOne)
+	 fmt.Println(indexTwo)
 
-	fmt.Println(rangeOne,rangeTwo,rangeThree)
 
-	rangeOne = append(rangeOne,"Tom")
-	fmt.Println(rangeOne)
+	 names := []string{"summer","lucy","henry","lily","tom"}
 
+	 sort.Strings(names)
+	 fmt.Println(names)
+
+	 fmt.Println(sort.SearchStrings(names, "henry"))
 
 }
