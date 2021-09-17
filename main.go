@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -43,14 +44,34 @@ func promptOptions(b bill){
 	switch opt {
 		case "a":
 			name, _ := getInput("商品名称：", reader)
-			price, _ := getInput("商品价格：", reader)
+			price, _ := getInput("商品价格：", reader) 
 
-			fmt.Println(name,price)
+			p, err := strconv.ParseFloat(price, 64)
+
+			//nil是一个预先声明的标识符，表示指针、通道、函数、接口、映射或切片类型。
+			// 当出现不等于nil的时候,说明出现某些错误了,需要我们对这个错误进行一些处理,而如果等于nil说明运行正常。
+			if err != nil {
+				fmt.Println("金额必须为数字...")
+				promptOptions(b)
+			}
+			// 添加商品
+			b.addItem(name,p)
+
+			fmt.Println("商品已经添加：",name, price)
+			promptOptions(b)
 		case "t":
 			tax,_ := getInput("输入商品税额：", reader)
-			fmt.Println(tax)
+
+				t, err := strconv.ParseFloat(tax, 64)
+			if err != nil {
+				fmt.Println("金额必须为数字...")
+				promptOptions(b)
+			}
+			b.updateTax(t)
+			fmt.Println("税额已经更新：",t)
+			promptOptions(b)
 		case "s":
-			fmt.Println("你的选择是s")
+			fmt.Println("你的账单已保存", b)
 		default:
 				fmt.Println("选项无效...")
 				promptOptions(b)
