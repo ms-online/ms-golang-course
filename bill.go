@@ -13,7 +13,7 @@ type bill struct {
  func newBill(name string) bill{
 	 b := bill{
 		 name: name,
-		 items: map[string]float64{"apple":5.88,"orange": 2.56},
+		 items: map[string]float64{},
 		 tax: 0,
 	 }
 	 return b
@@ -30,9 +30,22 @@ type bill struct {
 			total += v
 		}
 
+		//税额
+		fs += fmt.Sprintf("%-25v ...$%v \n","tax:", b.tax)
+
 		//总金额
-		fs += fmt.Sprintf("%-25v ...$%0.2f","total:", total)
+		fs += fmt.Sprintf("%-25v ...$%0.2f","total:", total + b.tax)
 
 		return fs
 
+ }
+
+ // 更新税额
+ func (b *bill) updateTax(tax float64) {
+	  b.tax = tax
+ }
+
+ // 添加新商品到账单中
+ func (b *bill) addItem(name string, price float64){
+	 b.items[name] = price
  }
