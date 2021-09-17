@@ -68,10 +68,12 @@ func promptOptions(b bill){
 				promptOptions(b)
 			}
 			b.updateTax(t)
+
 			fmt.Println("税额已经更新：",t)
 			promptOptions(b)
 		case "s":
-			fmt.Println("你的账单已保存", b)
+			b.save()
+			fmt.Println("你的账单已保存：", b.name)
 		default:
 				fmt.Println("选项无效...")
 				promptOptions(b)

@@ -1,0 +1,7 @@
+Bill Details: 
+apple:                    ...$2.34 
+orange:                   ...$1.45 
+peach:                    ...$3.45 
+watermelon:               ...$2.68 
+tax:                      ...$0.5 
+total:                    ...$10.42

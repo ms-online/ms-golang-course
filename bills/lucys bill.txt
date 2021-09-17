@@ -1,0 +1,5 @@
+Bill Details: 
+coffee:                   ...$10.67 
+bread:                    ...$8.56 
+tax:                      ...$2 
+total:                    ...$21.23

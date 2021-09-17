@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // 自定义数据类型
 type bill struct {
@@ -48,4 +51,19 @@ type bill struct {
  // 添加新商品到账单中
  func (b *bill) addItem(name string, price float64){
 	 b.items[name] = price
+ }
+
+ // 保存账单
+
+ func (b *bill) save(){
+	 data := []byte(b.format())
+
+	 err := os.WriteFile("bills/" + b.name+".txt", data, 0644)
+
+	 if err !=nil{
+		 panic(err)
+	 }
+
+	 fmt.Println("账单已保存到文件中")
+
  }
