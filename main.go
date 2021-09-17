@@ -38,7 +38,23 @@ func promptOptions(b bill){
 	reader := bufio.NewReader(os.Stdin)
 
 	opt,_ := getInput("可选项（a - 添加商品， s - 保存账单， t - 添加税额）",reader)
-	fmt.Println(opt)
+	
+	// switch语句
+	switch opt {
+		case "a":
+			name, _ := getInput("商品名称：", reader)
+			price, _ := getInput("商品价格：", reader)
+
+			fmt.Println(name,price)
+		case "t":
+			tax,_ := getInput("输入商品税额：", reader)
+			fmt.Println(tax)
+		case "s":
+			fmt.Println("你的选择是s")
+		default:
+				fmt.Println("选项无效...")
+				promptOptions(b)
+		}
 }
 
 func main() { 
