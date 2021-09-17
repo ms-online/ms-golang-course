@@ -1,17 +1,48 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
+// 获取输入值的方法
+func getInput(prompt string ,r *bufio.Reader) (string,error){
+  fmt.Print(prompt)
+	input, err := r.ReadString('\n')
+	return strings.TrimSpace(input), err
+}
+
+func createBill() bill {
+	// 阅读器
+	reader := bufio.NewReader(os.Stdin)
+
+	//输出询问
+	// fmt.Print("创建账单名称：")
+	// name, _ := reader.ReadString('\n')
+	// name = strings.TrimSpace(name)
+	name, _ := getInput("创建账单名称：",reader)
+
+	// 创建新账单
+	 b := newBill(name)
+	 fmt.Println("账单已创建：", b.name)
+
+	 return b
+
+}
+
+//可选项
+func promptOptions(b bill){
+// 阅读器
+	reader := bufio.NewReader(os.Stdin)
+
+	opt,_ := getInput("可选项（a - 添加商品， s - 保存账单， t - 添加税额）",reader)
+	fmt.Println(opt)
+}
 
 func main() { 
-  //初始化账单
-	mybill := newBill("summer's bill")
-	
-  mybill.addItem("apple",5.45)
-  mybill.addItem("peach",2.56)
-  mybill.addItem("orange",2.78)
-  mybill.addItem("watermelon",1.88)
-	mybill.updateTax(10)
+  mybill := createBill()
+  promptOptions(mybill)
 
-	fmt.Println(mybill.format())
 }
