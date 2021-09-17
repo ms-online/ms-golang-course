@@ -6,6 +6,6 @@ import "fmt"
 func main() { 
   //初始化账单
 	mybill := newBill("summer's bill")
-
-	fmt.Println(mybill)
+  
+	fmt.Println(mybill.format())
 }
