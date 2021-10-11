@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"os/exec"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -25,6 +27,9 @@ func main() {
 
 	// 读取标准输入
 	reader := bufio.NewReader(os.Stdin)
+
+	//清空屏幕
+	clearScreen()
 
 	// 游戏提示
 	fmt.Print("请输入rock,paper,scissors -> ")
@@ -49,4 +54,20 @@ func main() {
 
 
 
+}
+
+
+// 清空屏幕
+func clearScreen(){
+	// runtime提供go运行时环境的操作
+	//GOOS判断电脑的操作系统
+	if strings.Contains(runtime.GOOS,"windows"){
+	cmd := 	exec.Command("cmd","/c","cls")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+	} else {
+	cmd := 	exec.Command("clear")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+	}
 }
