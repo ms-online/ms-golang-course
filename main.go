@@ -48,10 +48,47 @@ func main() {
 			playerValue = SCISSORS
 	}
 
-	fmt.Println("-------------")
-	fmt.Println("玩家的选择",playerChoice, "所对应的值为：", playerValue)
-	fmt.Println("电脑的选择所对应的值为：",computerValue)
+	fmt.Println("玩家的选择",playerChoice)
 
+	// 输出电脑随机生成的选项
+	switch computerValue {
+	  case ROCK :
+		  fmt.Println("电脑的选择为ROCK")
+		case PAPER :
+			fmt.Println("电脑的选择为PAPER")
+		case SCISSORS :
+			fmt.Println("电脑的选择为SCISSORS")
+	}
+
+	fmt.Println("-------------")
+	
+ // 本回合结论
+  if playerValue == computerValue {
+		fmt.Println("本回合为平局！")
+	}else {
+		switch playerValue {
+		case ROCK :
+			if computerValue == PAPER {
+				fmt.Println("本回合电脑获胜！")
+			}else {
+				fmt.Println("本回合玩家获胜！")
+			}
+		case PAPER :
+			if computerValue == SCISSORS {
+				fmt.Println("本回合电脑获胜！")
+			}else {
+				fmt.Println("本回合玩家获胜！")
+			}
+		case SCISSORS :
+			if computerValue == ROCK {
+				fmt.Println("本回合电脑获胜！")
+			}else {
+				fmt.Println("本回合玩家获胜！")
+			}
+		default:
+			fmt.Println("无效输入")
+		}
+	}
 
 
 }
